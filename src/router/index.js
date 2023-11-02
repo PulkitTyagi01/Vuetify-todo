@@ -25,6 +25,11 @@ const routes = [
     name: "about",
     component: () => import("../views/AboutView.vue"),
   },
+  {
+    path: "/:notFound",
+    name : 'NotFound',
+    component : () => import('../views/NotFound.vue')
+  },
 ];
 
 const router = new VueRouter({
