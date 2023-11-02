@@ -11,7 +11,6 @@
 
         <v-list-item-content>
           <v-list-item-title
-            :class="{ 'text-decoration-line-through': item.done }"
             >{{ item.title }}</v-list-item-title
           >
         </v-list-item-content>
@@ -31,17 +30,21 @@
         </v-list-item-action>
       </template>
     </v-list-item>
+    <!-- <v-divider></v-divider> -->
+    <extra-details :item="item" v-if="item.done"></extra-details>
     <v-divider></v-divider>
   </div>
 </template>
 
 <script>
 import { format } from "date-fns";
+import ExtraDetails from "./ExtraDetails.vue";
 import TaskMenu from "./TaskMenu.vue";
 export default {
   props: ["item"],
   components: {
     "task-menu": TaskMenu,
+    "extra-details": ExtraDetails,
   },
   filters: {
     niceDate(value) {

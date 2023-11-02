@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .v-input__slot::after {
   border: none !important;
   border-color: transparent !important;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-menu bottom left>
-      <template v-slot:activator="{ on, attrs }">
+      <template v-if="user === task.createdby" v-slot:activator="{ on, attrs }">
         <v-btn icon v-bind="attrs" v-on="on">
           <v-icon color="primary">mdi-dots-vertical</v-icon>
         </v-btn>
@@ -79,18 +79,23 @@ export default {
           },
         },
         {
-          title: 'Sort',
-          icon: 'mdi-drag-horizontal-variant',
-          click(){
-            this.$store.commit('toggleSorting')
-          }
-        }
+          title: "Sort",
+          icon: "mdi-drag-horizontal-variant",
+          click() {
+            this.$store.commit("toggleSorting");
+          },
+        },
       ],
     };
   },
   methods: {
     handleClick(i) {
       this.items[i].click.call(this);
+    },
+  },
+  computed: {
+    user() {
+      return this.$store.getters.user;
     },
   },
 };

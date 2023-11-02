@@ -25,10 +25,19 @@ export default {
   },
   methods: {
     addTasks() {
+      console.log(this.user);
       if (this.taskTitle) {
-        this.$store.dispatch("addTask", this.taskTitle);
+        this.$store.dispatch("addTask", {
+          title: this.taskTitle,
+          user: this.user,
+        });
         this.taskTitle = "";
       }
+    },
+  },
+  computed: {
+    user() {
+      return this.$store.getters.user;
     },
   },
 };
