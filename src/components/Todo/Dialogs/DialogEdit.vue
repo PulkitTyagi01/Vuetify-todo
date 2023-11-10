@@ -15,7 +15,7 @@
           name="input-7-4"
           label="Details"
         ></v-textarea>
-        <h4>Created By - {{item.createdby}}</h4>
+        <h4>Created By - {{ item.createdby }}</h4>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>

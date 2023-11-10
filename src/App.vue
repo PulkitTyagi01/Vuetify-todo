@@ -21,16 +21,19 @@ export default {
     "date-time": DateTime,
     "the-login": TheLogin,
   },
-  mounted(){
-    this.$store.commit('setUserdetails')
-    this.$store.dispatch('getTasks')
-
-  }
+  mounted() {
+    this.$store.commit("setUserdetails");
+    this.$store.dispatch("getTasks");
+  },
 };
 </script>
 
 <style>
-.header-container {
-  max-width: none;
+.v-app-bar-title__content {
+  width: 220px;
 }
 </style>
+<!-- .header-container {
+  max-width: none;
+} -->
+

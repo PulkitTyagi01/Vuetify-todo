@@ -81,7 +81,8 @@ export default new Vuex.Store({
     dateEdit(state, payload) {
       for (let i of state.tasks) {
         if (i.id === payload.id) {
-          i.dueDate = payload.dueDate;
+          i.startDate = payload.start;
+          i.endDate = payload.end;
         }
       }
     },
@@ -115,7 +116,8 @@ export default new Vuex.Store({
     updateDate(context, payload) {
       console.log(payload, "payloadd");
       db.collection("tasks").doc({ id: payload.id }).update({
-        dueDate: payload.dueDate,
+        startDate: payload.start,
+        endDate: payload.end,
       });
       context.commit("dateEdit", payload);
       context.commit("showSnackbar", "Date Updated !");
@@ -128,7 +130,8 @@ export default new Vuex.Store({
       let task = {
         id: Date.now(),
         title: payload.title,
-        dueDate: null,
+        startDate: null,
+        endDate: null,
         done: false,
         details: "",
         createdby: payload.user,
@@ -138,6 +141,7 @@ export default new Vuex.Store({
         .then(() => {
           context.commit("taskAdd", task);
           context.commit("showSnackbar", "Task Added !");
+          context.dispatch("getTasks");
         });
     },
     getTasks(context) {

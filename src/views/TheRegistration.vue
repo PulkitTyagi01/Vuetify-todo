@@ -3,6 +3,7 @@
     <div class="text-decoration-underline pt-1">
       <p class="text-center text--primary font-weight-bold text-h5">Registration</p>
     </div>
+    
     <v-card-text>
       <v-text-field
         v-model="username"

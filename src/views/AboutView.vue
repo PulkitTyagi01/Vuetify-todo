@@ -62,7 +62,7 @@
         </v-row>
       </v-container>
     </v-app-bar>
-    <div class="about pa-6">
+    <div class="about pa-6 pb-0">
       <h1>About Vuetify Todo !</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
@@ -88,7 +88,54 @@
         libero consectetur quae aut quaerat recusandae reprehenderit illo sed
         provident harum error voluptatibus tenetur.
       </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+        delectus aperiam, commodi earum, molestias quas odit harum porro
+        provident beatae alias quod expedita iusto tempora corporis! Eum
+        repellat blanditiis alias, beatae deserunt autem, amet, laborum et
+        libero consectetur quae aut quaerat recusandae reprehenderit illo sed
+        provident harum error voluptatibus tenetur.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+        delectus aperiam, commodi earum, molestias quas odit harum porro
+        provident beatae alias quod expedita iusto tempora corporis! Eum
+        repellat blanditiis alias, beatae deserunt autem, amet, laborum et
+        libero consectetur quae aut quaerat recusandae reprehenderit illo sed
+        provident harum error voluptatibus tenetur.
+      </p>
     </div>
+
+    <v-bottom-navigation class="mb-5" color="primary" horizontal>
+      <v-btn @click="sheet = !sheet">
+        <span>Recents</span>
+
+        <v-icon>mdi-history</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Favorites</span>
+
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Nearby</span>
+
+        <v-icon>mdi-map-marker</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
+    <v-bottom-sheet v-model="sheet">
+      <v-sheet class="text-center" height="200px">
+        <v-btn class="mt-6" text color="red" @click="sheet = !sheet">
+          close
+        </v-btn>
+        <div class="py-3">
+          This is a bottom sheet using the controlled by v-model instead of
+          activator
+        </div>
+      </v-sheet>
+    </v-bottom-sheet>
   </div>
 </template>
 
@@ -98,10 +145,12 @@ import DateTime from "@/components/Todo/DateTime.vue";
 export default {
   data() {
     return {
+      sheet: false,
       drawer: null,
       items: [
         { title: "Todo", icon: "mdi-format-list-checks", to: "TheTodo" },
         { title: "About", icon: "mdi-help-box", to: "about" },
+        { title: "Section", icon: "mdi-check", to: "section" },
       ],
     };
   },
@@ -116,3 +165,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.header-container {
+  max-width: none;
+}
+div.v-main__wrap {
+  padding-bottom: 0px;
+}
+</style>

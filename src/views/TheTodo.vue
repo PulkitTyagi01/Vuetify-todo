@@ -89,10 +89,11 @@ import DateTime from "@/components/Todo/DateTime.vue";
 export default {
   data() {
     return {
-      drawer: null,
+      drawer: false,
       items: [
         { title: "Todo", icon: "mdi-format-list-checks", to: "TheTodo" },
         { title: "About", icon: "mdi-help-box", to: "about" },
+        { title: "Section", icon: "mdi-check", to: "section" },
       ],
       attrs: {
         class: "mb-6",
@@ -134,8 +135,11 @@ export default {
 </script>
 
 <style scoped>
+.header-container {
+  max-width: none;
+}
 .btn-3 {
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translateX(-50%);
 }
