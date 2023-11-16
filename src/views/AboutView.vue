@@ -106,14 +106,14 @@
       </p>
     </div>
 
-    <v-bottom-navigation class="mb-5" color="primary" horizontal>
+    <v-bottom-navigation class="mb-0 bottom " color="primary" horizontal>
       <v-btn @click="sheet = !sheet">
         <span>Recents</span>
 
         <v-icon>mdi-history</v-icon>
       </v-btn>
 
-      <v-btn>
+      <v-btn >
         <span>Favorites</span>
 
         <v-icon>mdi-heart</v-icon>
@@ -172,5 +172,10 @@ export default {
 }
 div.v-main__wrap {
   padding-bottom: 0px;
+}
+.bottom {
+  bottom: -99px !important;
+  background-color: rgba(143, 214, 223, 0.621);
+  color: black;
 }
 </style>
